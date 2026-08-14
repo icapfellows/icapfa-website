@@ -22,7 +22,7 @@ export const siteConfig = {
   nonprofitStatusLine:
     "ICAP Fellows Association (ICAPFA) is an all-volunteer, 501(c)(3) nonprofit organization.",
 
-  contactEmail: "info@icapfellows.org", // TODO: confirm real inbox before launch
+  contactEmail: "info@icapfellows.org",
 
   links: {
     // Neon CRM (member management platform)
