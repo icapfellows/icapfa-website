@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand palette — calibrated to the ICAP Fellows Association logo.
+     RGB-triplet form (no commas, no rgb() wrapper) is what Tailwind's
+     rgb(var(--x) / <alpha-value>) pattern needs to make /NN opacity
+     modifiers (e.g. bg-maroon/70) actually work on these custom colors —
+     see tailwind.config.ts. The hex versions stay for non-Tailwind CSS. */
+  --color-maroon: #7c1f2a;
+  --color-maroon-rgb: 124 31 42;
+  --color-maroon-dark: #451016;
+  --color-maroon-dark-rgb: 69 16 22;
+  --color-gold: #c99a3e;
+  --color-gold-rgb: 201 154 62;
+  --color-gold-dark: #8a6d1f;
+  --color-gold-dark-rgb: 138 109 31;
+  --color-brown: #8b5e3c;
+  --color-brown-rgb: 139 94 60;
+  --color-bg-soft: #f6efe2;
+  --color-bg-soft-rgb: 246 239 226;
+  --color-bg-off: #fbf9f5;
+  --color-bg-off-rgb: 251 249 245;
+  --color-text: #241512;
+  --color-text-rgb: 36 21 18;
+  --color-white: #ffffff;
+
+  /* --font-body and --font-display are set by next/font on the <html>
+     element in layout.tsx — not hardcoded here, so swapping the font
+     imports there is enough to re-theme type sitewide. */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible focus state for keyboard users, on every interactive element. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  z-index: 100;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-up {
+  animation: fade-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

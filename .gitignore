@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+build
+.env*.local
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+
+# Source documents (large files, personal data in raw form) — not for git history
+/reference/
+
+# Dev-only debug output
+/.shots/
+/.playwright-cli/
+debug.log
