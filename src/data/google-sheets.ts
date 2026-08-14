@@ -20,13 +20,19 @@ export const googleSheets = {
   jobPostings: {
     sheetId: "1QcEVHbi9qTDB8qL8koh_qigjJQyzgCo4bfwqtew2FZ8" as string | null,
     gid: "751189556",
+    formUrl:
+      "https://docs.google.com/forms/d/e/1FAIpQLSeLuWEDxEANKFQUqtQ2eO7XvC4I1EwbRtN20by6_otnmPCAXg/viewform",
   },
   fellowBusinesses: {
     sheetId: "1_6MexSx6E9ZsIj4BMt711pes-aVkFuIUnwckx_8zTPk" as string | null,
     gid: "852509957",
+    formUrl:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdecCjsQ8WQQ3LRPCpSHPEh4eXF8nB_b1AYuE0X2lKc6wqzLw/viewform",
   },
   volunteerOpportunities: {
     sheetId: "1zVT1nr0oxDCzWw2r3JYX9kCX_E3IjS-sKin4u9cDaKk" as string | null,
     gid: "1067570362",
+    formUrl:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdDX_oTySy6XBYdPnhW6aAr4jf0-U4mi5mjZz8O8vjLrZ6I_Q/viewform",
   },
 };

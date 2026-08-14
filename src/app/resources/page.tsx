@@ -3,8 +3,10 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { JobPostingsBoard } from "@/components/JobPostingsBoard";
 import { CareerResourceLinks } from "@/components/CareerResourceLinks";
 import { CoachDirectory } from "@/components/CoachDirectory";
+import { CTAButton } from "@/components/CTAButton";
 import { careerResourceCategories } from "@/data/careerResourceLinks";
 import { icapCoaches, openSourceCoaches } from "@/data/coaches";
+import { googleSheets } from "@/data/google-sheets";
 
 export const metadata: Metadata = {
   title: "Career & Resources",
@@ -29,10 +31,22 @@ export default function ResourcesPage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="font-display text-xl font-bold text-maroon">Job Postings</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink/60">
-            Submitted directly by Fellows. New postings appear here automatically.
-          </p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="font-display text-xl font-bold text-maroon">Job Postings</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink/60">
+                Submitted directly by Fellows. New postings appear here automatically.
+              </p>
+            </div>
+            <CTAButton
+              href={googleSheets.jobPostings.formUrl}
+              variant="ghost"
+              external
+              className="flex-shrink-0"
+            >
+              Submit a Job Posting
+            </CTAButton>
+          </div>
           <div className="mt-6">
             <JobPostingsBoard />
           </div>

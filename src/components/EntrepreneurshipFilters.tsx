@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { BusinessCard } from "@/components/BusinessCard";
 import { EmptyState } from "@/components/EmptyState";
+import { CTAButton } from "@/components/CTAButton";
 import { useSheetRows } from "@/lib/useSheetRows";
 import { googleSheets } from "@/data/google-sheets";
 import type { FellowBusiness } from "@/data/businesses";
@@ -72,44 +73,54 @@ export function EntrepreneurshipFilters({ businesses: staticBusinesses }: { busi
 
   return (
     <div>
-      <div className="flex flex-col gap-4 sm:flex-row">
-        <div className="relative flex-1">
-          <Search
-            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-maroon/40"
-            aria-hidden="true"
-          />
-          <label htmlFor="business-search" className="sr-only">
-            Search business profiles
-          </label>
-          <input
-            id="business-search"
-            type="search"
-            placeholder="Search by name, owner, or keyword"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            disabled={businesses.length === 0}
-            className="w-full rounded border border-maroon/20 bg-white py-2.5 pl-9 pr-4 text-sm disabled:cursor-not-allowed disabled:bg-surface-off"
-          />
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-4 sm:flex-row lg:flex-1">
+          <div className="relative flex-1">
+            <Search
+              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-maroon/40"
+              aria-hidden="true"
+            />
+            <label htmlFor="business-search" className="sr-only">
+              Search business profiles
+            </label>
+            <input
+              id="business-search"
+              type="search"
+              placeholder="Search by name, owner, or keyword"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              disabled={businesses.length === 0}
+              className="w-full rounded border border-maroon/20 bg-white py-2.5 pl-9 pr-4 text-sm disabled:cursor-not-allowed disabled:bg-surface-off"
+            />
+          </div>
+          <div>
+            <label htmlFor="business-sector" className="sr-only">
+              Filter by sector
+            </label>
+            <select
+              id="business-sector"
+              value={sector}
+              onChange={(e) => setSector(e.target.value)}
+              disabled={businesses.length === 0}
+              className="rounded border border-maroon/20 bg-white px-4 py-2.5 text-sm disabled:cursor-not-allowed disabled:bg-surface-off"
+            >
+              <option value="all">All sectors</option>
+              {sectors.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-        <div>
-          <label htmlFor="business-sector" className="sr-only">
-            Filter by sector
-          </label>
-          <select
-            id="business-sector"
-            value={sector}
-            onChange={(e) => setSector(e.target.value)}
-            disabled={businesses.length === 0}
-            className="rounded border border-maroon/20 bg-white px-4 py-2.5 text-sm disabled:cursor-not-allowed disabled:bg-surface-off"
-          >
-            <option value="all">All sectors</option>
-            {sectors.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-        </div>
+        <CTAButton
+          href={googleSheets.fellowBusinesses.formUrl}
+          variant="ghost"
+          external
+          className="flex-shrink-0"
+        >
+          Submit Your Business
+        </CTAButton>
       </div>
 
       {isLoading ? (
@@ -122,7 +133,7 @@ export function EntrepreneurshipFilters({ businesses: staticBusinesses }: { busi
         <div className="mt-10">
           <EmptyState
             title="No business profiles yet"
-            description="This showcase is ready for Fellow-owned businesses and government-contracting profiles. Check back soon, or reach out via the Contact page if you'd like to submit a profile."
+            description="This showcase is ready for Fellow-owned businesses and government-contracting profiles. Be the first to submit yours using the button above."
           />
         </div>
       ) : filtered.length === 0 ? (

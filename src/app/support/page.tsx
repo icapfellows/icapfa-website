@@ -5,6 +5,7 @@ import { CTAButton } from "@/components/CTAButton";
 import { Reveal } from "@/components/Reveal";
 import { VolunteerOpportunities } from "@/components/VolunteerOpportunities";
 import { siteConfig } from "@/data/site-config";
+import { googleSheets } from "@/data/google-sheets";
 
 export const metadata: Metadata = {
   title: "Support Us",
@@ -82,11 +83,21 @@ export default function SupportPage() {
 
       <section className="bg-surface-off">
         <div className="mx-auto max-w-container px-4 py-24 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Give Your Time"
-            title="Volunteer Opportunities"
-            description="Ways organizations and Fellows are looking for help right now. New postings appear here automatically."
-          />
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <SectionHeading
+              eyebrow="Give Your Time"
+              title="Volunteer Opportunities"
+              description="Ways organizations and Fellows are looking for help right now. New postings appear here automatically."
+            />
+            <CTAButton
+              href={googleSheets.volunteerOpportunities.formUrl}
+              variant="ghost"
+              className="flex-shrink-0"
+              external
+            >
+              Post a Volunteer Opportunity
+            </CTAButton>
+          </div>
           <div className="mt-10">
             <VolunteerOpportunities />
           </div>
