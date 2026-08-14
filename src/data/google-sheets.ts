@@ -18,15 +18,15 @@
  */
 export const googleSheets = {
   jobPostings: {
-    sheetId: null as string | null,
-    gid: "0",
+    sheetId: "1QcEVHbi9qTDB8qL8koh_qigjJQyzgCo4bfwqtew2FZ8" as string | null,
+    gid: "751189556",
   },
   fellowBusinesses: {
-    sheetId: null as string | null,
-    gid: "0",
+    sheetId: "1_6MexSx6E9ZsIj4BMt711pes-aVkFuIUnwckx_8zTPk" as string | null,
+    gid: "852509957",
   },
   volunteerOpportunities: {
-    sheetId: null as string | null,
-    gid: "0",
+    sheetId: "1zVT1nr0oxDCzWw2r3JYX9kCX_E3IjS-sKin4u9cDaKk" as string | null,
+    gid: "1067570362",
   },
 };
