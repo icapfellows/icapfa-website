@@ -12,7 +12,7 @@ export const siteConfig = {
   orgAbbreviation: "ICAPFA",
   programName: "International Career Advancement Program",
   programAbbreviation: "ICAP",
-  tagline: "Building Inclusive Leadership in International Affairs",
+  tagline: "In International Affairs and More",
 
   // Canonical production domain (per client requirements). Update if the
   // final domain differs before launch.
